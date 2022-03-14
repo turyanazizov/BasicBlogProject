@@ -1,3 +1,14 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import AboutMain,AboutSubject
+admin.site.register(AboutSubject)
+
+@admin.register(AboutMain)
+class AuthorAdmin(admin.ModelAdmin):
+    # to disbale add functionality
+    def has_add_permission(self, request):
+        return False
+
+    # to disable delete functionaliyt
+    def has_delete_permission(self, request, obj=None):
+        return False

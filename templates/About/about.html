@@ -10,57 +10,50 @@
 
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="section-title">
-                         <h3>about our story</h3>
-                         <h2>The creative web & mobile studio and focused on brand identity, web development and social marketing.</h2>
+                         <h3>{{main.Main_Title}}</h3>
+                         <h2>{{main.Main_Content}}</h2>
                     </div>
 
                     <div class="col-md-8 col-sm-12">
-                         <img src="{% static 'images/about-image.jpg' %}" class="img-responsive" alt="About">
+                         <img src="{{main.image.url}}" class="img-responsive" alt="About">
                     </div>
 
                     <div class="col-md-4 col-sm-12">
-                         <h1>Magnet Studio</h1>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-                         <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                         <h1>{{main.Title}}</h1>
+                         <p>{{main.First_Text}}</p>
                     </div>
 
                     <div class="clearfix"></div>
 
                      <hr>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-
+                    <p>{{main.Second_Text}}</p>
                     <hr>
-
+                    {% for subject in subjects %}
                     <div class="col-md-4 col-sm-6">
-                         <h3>Web Development</h3>
+                         <h3>{{subject.Subject}}</h3>
                          <ul>
-                              <li>Online Shopping Site</li>
-                              <li>Wordpress CMS</li>
-                              <li>Bootstrap themes</li>
-                              <li>Web Application</li>
+                              {% if  subject.text1 %}
+                              <li>{{subject.text1}}</li>
+                              {% endif %}
+
+                              {% if  subject.text2 %}
+                              <li>{{subject.text2}}</li>
+                              {% endif %}
+
+                              {% if  subject.text3 %}
+                              <li>{{subject.text3}}</li>
+                              {% endif %}
+
+                              {% if  subject.text4 %}
+                              <li>{{subject.text4}}</li>
+                              {% endif %}
+                              {% if  subject.text5 %}
+                              <li>{{subject.text5}}</li>
+                              {% endif %}
                          </ul>
                     </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <h3>Brand Identity</h3>
-                         <ul>
-                              <li>Logo Design</li>
-                              <li>Personal Branding</li>
-                              <li>Flyer Design</li>
-                              <li>Creative Direction</li>
-                         </ul>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6">
-                         <h3>Social marketing</h3>
-                         <ul>
-                              <li>facebook, twitter.</li>
-                              <li>Page Maintenance</li>
-                              <li>Social media</li>
-                         </ul>
-                    </div>
+                    {% endfor %}
                </div>
 
           </div>
