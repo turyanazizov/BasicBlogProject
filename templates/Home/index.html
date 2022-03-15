@@ -8,7 +8,7 @@
           <div class="row">
 
                <div class="col-md-12 col-sm-12">
-                    <h2>The creative web & mobile studio. we are young designers and focused on brand identity, web development and social marketing.</h2>
+                    <h2>{{main_content.main_content}}</h2>
                     <hr>
                </div>
 
@@ -21,91 +21,21 @@
 <section id="portfolio">
      <div class="container">
           <div class="row">
-
+               {% for project in projects %}
                <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
+                    <a href="{% url 'home:single-project' project.project_name %}">
                          <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img1.jpg' %}" class="img-responsive" alt="Portfolio">
+                              <img src="{{project.image1.url}}" class="img-responsive" alt="Portfolio" style="width: 360px;height:240px">
                                    <div class="portfolio-overlay">
                                         <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Brand Identity</small>
+                                             <h3>{{project.project_name}}</h3>
+                                             <small>{{project.role}}</small>
                                         </div>
                                    </div>
                          </div>
                     </a>
                </div>
-
-               <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
-                         <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img2.jpg' %}" class="img-responsive" alt="Portfolio">
-                                   <div class="portfolio-overlay">
-                                        <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Web Development</small>
-                                        </div>
-                                   </div>
-                         </div>
-                    </a>
-               </div>
-
-               <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
-                         <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img3.jpg' %}" class="img-responsive" alt="Portfolio">
-                                   <div class="portfolio-overlay">
-                                        <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Mobile App</small>
-                                        </div>
-                                   </div>
-                         </div>
-                    </a>
-               </div>
-
-               <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
-                         <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img4.jpg' %}" class="img-responsive" alt="Portfolio">
-                                   <div class="portfolio-overlay">
-                                        <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Logo Design</small>
-                                        </div>
-                                   </div>
-                         </div>
-                    </a>
-               </div>
-
-               <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
-                         <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img5.jpg' %}" class="img-responsive" alt="Portfolio">
-                                   <div class="portfolio-overlay">
-                                        <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Social marketing</small>
-                                        </div>
-                                   </div>
-                         </div>
-                    </a>
-               </div>
-
-               <div class="col-md-4 col-sm-6">
-                    <a href="{% url 'home:single-project' %}">
-                         <div class="portfolio-thumb">
-                              <img src="{% static 'images/portfolio-img6.jpg' %}" class="img-responsive" alt="Portfolio">
-                                   <div class="portfolio-overlay">
-                                        <div class="portfolio-item">
-                                             <h3>Project Name</h3>
-                                             <small>Fyler Design</small>
-                                        </div>
-                                   </div>
-                         </div>
-                    </a>
-               </div>
-
+               {% endfor %}
                <div class="col-md-12 col-sm-12 text-center">
                     <h3>hello, if you interest working together. just send message <a href="{% url 'contact:contact' %}">contact page</a></h3>
                </div>

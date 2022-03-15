@@ -10,10 +10,3 @@ def about(request):
     }
 
     return render(request,'about/about.html',context=context)
-main=AboutMain.objects.all().first()
-subjects=AboutSubject.objects.all()
-context={
-    'main':main,
-    'subjects':subjects
-}
-print(main.Main_Title)
