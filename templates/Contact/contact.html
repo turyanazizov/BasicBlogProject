@@ -13,19 +13,20 @@
                          <h3>get in touch</h3>
                          <h2>The creative web & mobile studio and focused on brand identity, web development and social marketing.</h2>
                     </div>
-
-                    <form action="#" method="post">
+                    <h1></h1>
+                    <form action="" method="POST">
+                         {% csrf_token %}
                          <div class="col-md-6 col-sm-6">
-                              <input type="text" class="form-control" placeholder="Name">
+                              <input type="text" class="form-control" placeholder="Name" name="name">
                          </div>
                          <div class="col-md-6 col-sm-6">
-                              <input type="email" class="form-control" placeholder="Email">
+                              <input type="email" class="form-control" placeholder="Email" name="email">
                          </div>
                          <div class="col-md-6 col-sm-6">
-                              <input type="telephone" class="form-control" placeholder="Phone Number">
+                              <input type="telephone" class="form-control" placeholder="Phone Number" name="number">
                          </div>
                          <div class="col-md-6 col-sm-6">
-                              <select class="form-control">
+                              <select class="form-control" name="select">
                                    <option>Budget Select</option>
                                    <option>$1200 to $1600</option>
                                    <option>$2200 to $2400</option>
@@ -33,7 +34,7 @@
                               </select>
                          </div>
                          <div class="col-md-12 col-sm-12"> 
-                              <textarea class="form-control" rows="5" placeholder="Project Details"></textarea>
+                              <textarea class="form-control" rows="5" placeholder="Project Details" name="text"></textarea>
                          </div>
                          <div class="col-md-3 col-sm-4">
                               <input type="submit" class="form-control" value="Send Message">

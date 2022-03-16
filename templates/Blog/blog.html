@@ -13,46 +13,27 @@
                          <h3>lastest Blogs</h3>
                          <h2>The creative web & mobile studio and focused on brand identity, web development and social marketing.</h2>
                     </div>
-
+                    {% for blog in blogs %}
                     <div class="blog-post-thumb">
                          <div class="blog-post-image">
-                              <a href="{% url 'blog:single-post' %}">
-                                   <img src="{% static 'images/blog-image1.jpg' %}" class="img-responsive" alt="Blog Image">
+                              <a href="{% url 'blog:single-post' blog.creator_name %}">
+                                   <img src="{{blog.image.url}}" class="img-responsive" alt="Blog Image">
                               </a>
                          </div>
                          <div class="blog-post-title">
-                              <h3><a href="{% url 'blog:single-post' %}">We Help You Create Perfect Modern Design</a></h3>
+                              <h3><a href="{% url 'blog:single-post' blog.creator_name %}">{{blog.title}}</a></h3>
                          </div>
                          <div class="blog-post-format">
-                              <span><a href="#"><img src="{% static 'images/blog-image1.jpg' %}" class="img-responsive img-circle"> Jen Lopez</a></span>
-                              <span><i class="fa fa-date"></i> Jan 30, 2016</span>
+                              <span><a href="#"><img src="{{blog.creator_img.url}}" class="img-responsive img-circle">{{blog.creator_name}}</a></span>
+                              <span><i class="fa fa-date"></i> {{blog.date}}</span>
                               <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
                          </div>
                          <div class="blog-post-des">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                              <a href="{% url 'blog:single-post' %}" class="btn btn-default">Continue Reading</a>
+                              <p>{{blog.content}}</p>
+                              <a href="{% url 'blog:single-post' blog.creator_name %}" class="btn btn-default">Continue Reading</a>
                          </div>
                     </div>
-
-                    <div class="blog-post-thumb">
-                         <div class="blog-post-image">
-                              <a href="{% url 'blog:single-post' %}">
-                                   <img src="{% static 'images/blog-image2.jpg' %}" class="img-responsive" alt="Blog Image">
-                              </a>
-                         </div>
-                         <div class="blog-post-title">
-                              <h3><a href="{% url 'blog:single-post' %}">When do you marry with someone you love in life?</a></h3>
-                         </div>
-                         <div class="blog-post-format">
-                              <span><a href="#"><img src="{% static 'images/author-image2.jpg' %}" class="img-responsive img-circle"> Leo Dennis</a></span>
-                              <span><i class="fa fa-date"></i> November 22, 2016</span>
-                              <span><a href="#"><i class="fa fa-comment-o"></i> 23 Comments</a></span>
-                         </div>
-                         <div class="blog-post-des">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                              <a href="{% url 'blog:single-post' %}" class="btn btn-default">Continue Reading</a>
-                         </div>
-                    </div>
+                    {% endfor %}
                </div>
 
           </div>

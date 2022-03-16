@@ -11,36 +11,34 @@
                <div class="col-md-offset-1 col-md-10 col-sm-12">
                     <div class="blog-single-post-thumb">
                          <div class="blog-post-image">
-                              <img src="{% static 'images/blog-image1.jpg' %}" class="img-responsive" alt="Blog Image">
+                              <img src="{{ blog.image.url }}" class="img-responsive" alt="Blog Image">
                          </div>
 
                          <div class="blog-post-title">
-                              <h2>We Help You Create Perfect Modern Design</a></h2>
+                              <h2>{{blog.title}}</a></h2>
                          </div>
 
                          <div class="blog-post-format">
-                              <span><a href="#"><img src="{% static 'images/author-image1.jpg' %}" class="img-responsive img-circle"> Jen Lopez</a></span>
-                              <span><i class="fa fa-date"></i> Jan 30, 2016</span>
+                              <span><a href="#"><img src="{{ blog.creator_img.url }}" class="img-responsive img-circle"> {{blog.creator_name}}</a></span>
+                              <span><i class="fa fa-date"></i>{{blog.date}}</span>
                               <span><a href="#"><i class="fa fa-comment-o"></i> 124 Comments</a></span>
                          </div>
 
                          <div class="blog-post-des">
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi</strong> ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                              <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </blockquote>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <strong>Ut enim ad minim veniam, quis nostrud</strong> exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                              <h3>What is Minimal Theme?</h3>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                              <p>{{blog.content}}</p>
+                              <h3>{{blog.second_title}}</h3>
+                              <p>{{blog.second_content}}</p>
+                              
                          </div>
 
                          <div class="blog-author">
                               <div class="media">
                                    <div class="media-object pull-left">
-                                        <img src="{% static 'images/author-image1.jpg' %}" class="img-circle img-responsive" alt="blog">
+                                        <img src="{{ blog.creator_img.url }}" class="img-circle img-responsive" alt="blog">
                                    </div>
                                    <div class="media-body">
-                                        <h3 class="media-heading"><a href="#">Jen Lopez ( Designer )</a></h3>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
+                                        <h3 class="media-heading"><a href="#">{{blog.creator_name}} ({{blog.creator_job}})</a></h3>
+                                        <p>{{blog.creator_bio}}</p>
                                    </div>
                               </div>
                          </div>

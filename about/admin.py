@@ -1,6 +1,6 @@
 from django.contrib import admin
-
 from .models import AboutMain,AboutSubject
+
 admin.site.register(AboutSubject)
 
 @admin.register(AboutMain)
