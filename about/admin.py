@@ -1,7 +1,13 @@
 from django.contrib import admin
 from .models import AboutMain,AboutSubject
 
-admin.site.register(AboutSubject)
+@admin.register(AboutSubject)
+class AboutSubjectAdmin(admin.ModelAdmin):
+    list_display = ('Subject','date',)
+    list_display_links = list_display
+    list_filter = ('Subject','date',)
+    search_fields = ('Subject',)
+
 
 @admin.register(AboutMain)
 class AuthorAdmin(admin.ModelAdmin):
