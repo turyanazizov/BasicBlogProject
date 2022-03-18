@@ -1,4 +1,3 @@
-from os import rename
 from django.shortcuts import redirect, render
 from . models import Contact
 

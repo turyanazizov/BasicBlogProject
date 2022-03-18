@@ -44,33 +44,26 @@
                          </div>
 
                          <div class="blog-comment">
-                              <h3>2 Comments</h3>
+                              <h3>All Comments</h3>
+                              {% for comment in comments %}
                                    <div class="media">
                                         <div class="media-object pull-left">
-                                             <img src="{% static 'images/comment-image1.jpg' %}" class="img-responsive img-circle" alt="Blog Image">
+                                             <img src="{% static 'images/pngtree-profile-line-black-icon-png-image_691051.jpg' %}" class="img-responsive img-circle" alt="Blog Image">
                                         </div>
                                         <div class="media-body">
-                                             <h3 class="media-heading">David Jones</h3>
-                                             <span>7 months ago</span>
-                                             <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
+                                             <h3 class="media-heading">{{comment.name}}</h3>
+                                             <span>{{comment.date}}</span>
+                                             <p>{{comment.text}}</p>
                                         </div>
                                    </div>
-                                   <div class="media">
-                                        <div class="media-object pull-left">
-                                             <img src="{% static 'images/comment-image2.jpg' %}" class="img-responsive img-circle" alt="Blog Image">
-                                        </div>
-                                        <div class="media-body">
-                                             <h3 class="media-heading">Omar Larus</h3>
-                                                  <span>7 months ago</span>
-                                                  <p>Lorem ipsum dolor sit amet, maecenas eget vestibulum justo imperdiet, wisi risus purus augue vulputate voluptate neque, curabitur.</p>
-                                        </div>
-                                   </div>
+                              {% endfor %}
                          </div>
 
                          <div class="blog-comment-form">
                               <h3>Leave a Comment</h3>
-                                   <form action="#" method="post">
-                                        <textarea class="form-control" placeholder="Message" rows="5" name"Your Comments" required></textarea>
+                                   <form action="" method="POST">
+                                        {% csrf_token %}
+                                        <textarea class="form-control" placeholder="Message" rows="5" name="text"></textarea>
                                         <input type="text" class="form-control" placeholder="Name" name="name" required>
                                         <input type="email" class="form-control" placeholder="Email" name="email" required>
                                         <div class="col-md-3 col-sm-4">

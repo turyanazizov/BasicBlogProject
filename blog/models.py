@@ -12,7 +12,6 @@ class Blog(models.Model):
     second_content = models.TextField(null=False, blank=False)
     creator_bio = models.TextField(null=False, blank=False)
     creator_job = models.CharField(max_length=105, null=False, blank=False)
-    # comment = models.ForeignKey('Coment', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name = 'Blog'
@@ -20,3 +19,18 @@ class Blog(models.Model):
 
     def __str__(self):
         return f"{self.creator_name}'s Blog"
+
+class Comment(models.Model):
+    STATUS_CHOICES = (
+        ('Approve', 'Approve'),
+        ('Reject', 'Reject'),
+    )
+    blog = models.ForeignKey(Blog,on_delete=models.CASCADE,blank=True,null=True,related_name='koments')
+    status = models.CharField(max_length=50,choices=STATUS_CHOICES)
+    text=models.TextField(blank=False,null=False)
+    name=models.CharField(max_length=100,blank=False,null=False)
+    email=models.EmailField(blank=False,null=False)
+    date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name

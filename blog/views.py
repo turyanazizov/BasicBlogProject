@@ -1,6 +1,5 @@
-from multiprocessing import context
-from django.shortcuts import render
-from . models import Blog
+from django.shortcuts import render,redirect
+from . models import Blog,Comment
 
 def blog(request):
     blogs=Blog.objects.all()
@@ -11,7 +10,16 @@ def blog(request):
 
 def single_post(request,name):
     blog=Blog.objects.all().filter(creator_name=name).first()
+    # comments=Comment.objects.filter(status='Approve')
+    comments=Blog.objects.all().filter(creator_name=name).first().koments.filter(status='Approve')
     context={
-        'blog':blog
+        'blog':blog,
+        'comments':comments
     }
+    if request.method == "POST":
+        Comment.objects.create(
+            text=request.POST.get("text"),
+            name=request.POST.get("name"),
+            email=request.POST.get("email"),
+            )
     return render(request,'blog/single-post.html',context=context)
